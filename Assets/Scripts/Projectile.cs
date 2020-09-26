@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
 
     public Vector3 gravity = new Vector3(0,0,-9.81f);
 
+    public Sprite puke;
 
     // Update is called once per frame
     void Update()
@@ -21,11 +22,22 @@ public class Projectile : MonoBehaviour
 
         if (velocity.z > 0){
             transform.localScale += new Vector3(0.1f,0.1f,0) ;
-        } else{
+        } else if(velocity.z < 0){
             transform.localScale -= new Vector3(0.1f,0.1f,0) ;
         }
 
-        if(transform.position.z < 0){
+        if(transform.position.z > 0 && transform.position.z < 0.2){
+            foreach(Node node in GameObject.Find("manuelito").GetComponent<PathFinding>().graph.nodes.Values){
+                if(GameObject.Find("manuelito").GetComponent<PathFinding>().graph.PointInTriangle(new Vector3(transform.position.x,transform.position.y,0), node.vertices)){
+                    velocity = Vector3.zero;
+                    gravity = Vector3.zero;
+                    transform.position = new Vector3(transform.position.x,transform.position.y,0);
+                    GetComponent<SpriteRenderer>().sprite= puke;
+                    GetComponent<SpriteRenderer>().sortingLayerName = "alfombras";
+                }
+            }
+
+        } else if(transform.position.z < 0){
             Destroy(gameObject);
         }
     }

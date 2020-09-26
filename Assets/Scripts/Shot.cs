@@ -16,7 +16,11 @@ public class Shot : MonoBehaviour
 
     protected Vector3 shot;
 
+    public float altura;
+
     public float radius;
+
+    public bool launch = false;
 
     protected void calcutaleFiringSolution(Vector3 start, Vector3 end, float muzzleV,bool coming){
         Vector3 delta = end- start;
@@ -67,38 +71,38 @@ public class Shot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        float distance = Mathf.Infinity;
-        float distance2 = distance;
-        if(Input.GetKeyDown(KeyCode.J)){
-            projectile.transform.position = character.transform.position;
+        // float distance = Mathf.Infinity;
+        // float distance2 = distance;
+        if(Input.GetKeyDown(KeyCode.J) || launch){
+            projectile.transform.position = character.transform.position + new Vector3(0,0,1f);
 
-            shot = character.asVector(character.transform.rotation.eulerAngles.z * Mathf.Deg2Rad) * Speed + new Vector3(0,0,10f);
+            shot = character.asVector(character.transform.rotation.eulerAngles.z * Mathf.Deg2Rad) * Speed + new Vector3(0,0,altura);
             projectile.velocity = shot;
             Instantiate(projectile);
 
 
-        } else if(Input.GetKeyDown(KeyCode.K)){
-            projectile.transform.position = character.transform.position;
+        }// else if(Input.GetKeyDown(KeyCode.K)){
+        //     projectile.transform.position = character.transform.position;
 
-            calcutaleFiringSolution(character.transform.position,target.transform.position,Speed,false);
-        }
+        //     calcutaleFiringSolution(character.transform.position,target.transform.position,Speed,false);
+        // }
 
 
-        if(flying){
-            distance = (flying.transform.position - target.transform.position).magnitude;
+        // if(flying){
+        //     distance = (flying.transform.position - target.transform.position).magnitude;
 
-            if(distance < radius){
-            //     projectile.transform.position = target.transform.position;
+        //     if(distance < radius){
+        //     //     projectile.transform.position = target.transform.position;
 
-                calcutaleFiringSolution(target.transform.position,character.transform.position,Speed,true);
-            }
+        //         calcutaleFiringSolution(target.transform.position,character.transform.position,Speed,true);
+        //     }
 
-            distance2 = (flying.transform.position - character.transform.position).magnitude;
+        //     distance2 = (flying.transform.position - character.transform.position).magnitude;
 
-            if(distance2 < radius){
-                calcutaleFiringSolution(character.transform.position,target.transform.position,Speed,true);
-            }
-        }
+        //     if(distance2 < radius){
+        //         calcutaleFiringSolution(character.transform.position,target.transform.position,Speed,true);
+        //     }
+        // }
 
 
     }

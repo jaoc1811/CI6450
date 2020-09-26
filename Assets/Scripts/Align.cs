@@ -9,13 +9,13 @@ public class Align : MonoBehaviour
 
     public agent target;
 
-    public float maxAngularAcceleration;
+    private float maxAngularAcceleration = 5;
 
-    public float maxRotation;
+    private float maxRotation = 5;
 
-    public float targetRadius;
+    private float targetRadius = 2;
 
-    public float slowRadius;
+    private float slowRadius = 50;
 
     float timeToTarget = 0.1f;
 

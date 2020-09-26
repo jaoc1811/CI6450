@@ -11,9 +11,10 @@ public class agent : MonoBehaviour
 
     public Steering steering;
 
-    public float maxSpeed;
+    public float maxSpeed = 2;
 
     public float maxAcceleration;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,8 @@ public class agent : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        maxAcceleration = 2 * maxSpeed;
         // Update position and orientation
         transform.position += velocity * Time.deltaTime;
         transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + rotation * Time.deltaTime * Mathf.Rad2Deg);

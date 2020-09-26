@@ -46,13 +46,10 @@ public class CollisionAvoidance : MonoBehaviour
         }
 
         if(firstTarget){
-            Debug.Log("entro");
             Vector3 relativePos;
             if(firstMinSeparation <= 0 || firstDistance < 2 * radius){
-                Debug.Log("primera guardia");
                 relativePos =  firstTarget.transform.position - character.transform.position;
             }else{
-                Debug.Log("segunda guardia");
                 relativePos = firstRelativePos + firstRelativeVel * shortestTime;
             }
 
@@ -60,6 +57,5 @@ public class CollisionAvoidance : MonoBehaviour
 
             character.steering.linear = relativePos * character.maxAcceleration;
         }
-        Debug.Log("salio");
     }
 }

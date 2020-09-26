@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - cuadrados
+  - beer
+  - vomit
+  - amin
+  - exclamation
   layers:
   - Default
   - TransparentFX
@@ -40,6 +45,27 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: alfombras
+    uniqueID: 1957843369
+    locked: 0
+  - name: amin
+    uniqueID: 2618755233
+    locked: 0
+  - name: Cama
+    uniqueID: 2850465693
+    locked: 0
+  - name: Paredes
+    uniqueID: 1403903837
+    locked: 0
+  - name: ventanas
+    uniqueID: 2428422551
+    locked: 0
+  - name: Muebles
+    uniqueID: 1814387823
+    locked: 0
+  - name: Encima
+    uniqueID: 858889503
     locked: 0
   - name: Proyectiles
     uniqueID: 3297468333

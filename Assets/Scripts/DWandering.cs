@@ -5,13 +5,13 @@ using UnityEngine;
 public class DWandering : Face
 {
     
-    public float wanderOffset;
+    private float wanderOffset = 4;
 
-    public float wanderRadius;
+    private float wanderRadius = 2;
 
-    public float wanderRate;
+    private float wanderRate = 10;
 
-    public float wanderOrientation;
+    private float wanderOrientation = 0;
 
     
 
